@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky777 - Premium Sports Betting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎰</text></svg>">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+    <!-- NOTIFICATION -->
+    <div id="notification" class="notification">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="notificationText" class="notification-text">Bet added!</span>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo-area">
+                <i class="fa-solid fa-spa lotus"></i>
+                <div class="logo-text-header">LUCKY<span>777</span></div>
+            </div>
+            <div class="header-right">
+                <div class="balance-box" onclick="toggleSearch()">
+                    <i class="fa-solid fa-wallet wallet-icon"></i>
+                    <span class="balance-amount">₹0.00</span>
+                </div>
+                <button class="btn-deposit" onclick="showNotification('💰 Contact us on WhatsApp for deposits!')">
+                    <i class="fa-solid fa-plus"></i> Deposit
+                </button>
+                <div class="user-icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIVE TICKER -->
+        <div class="live-ticker">
+            <div class="ticker-scroll" id="liveTicker">
+                <span class="ticker-item"><i class="fa-solid fa-star" style="color:var(--gold);margin-right:4px;"></i>Welcome to Lucky777 - Premium Sports Betting!</span>
+            </div>
+        </div>
+
+        <!-- SEARCH -->
+        <div id="searchBox" class="search-box">
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="search-input" placeholder="Search matches, teams, leagues..." oninput="searchMatches(this.value)">
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav class="nav-bar">
+            <div class="nav-inner">
+                <div class="nav-item active" data-tab="inplay">
+                    <i class="fa-solid fa-bolt"></i> IN-PLAY
+                </div>
+                <div class="nav-item" data-tab="cricket">
+                    <i class="fa-solid fa-baseball"></i> CRICKET
+                </div>
+                <div class="nav-item" data-tab="football">
+                    <i class="fa-solid fa-futbol"></i> FOOTBALL
+                </div>
+                <div class="nav-item" data-tab="tennis">
+                    <i class="fa-solid fa-table-tennis-paddle-ball"></i> TENNIS
+                </div>
+                <div class="nav-item" data-tab="basketball">
+                    <i class="fa-solid fa-basketball"></i> BASKETBALL
+                </div>
+                <div class="nav-item" data-tab="esports">
+                    <i class="fa-solid fa-gamepad"></i> ESPORTS <span class="nav-badge live">LIVE</span>
+                </div>
+                <div class="nav-item" data-tab="casino">
+                    <i class="fa-solid fa-crown"></i> CASINO
+                </div>
+                <div class="nav-item" data-tab="aviator">
+                    <i class="fa-solid fa-plane"></i> AVIATOR <span class="nav-badge new">NEW</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="mainContent">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <span style="margin-left:12px;color:var(--text-secondary);">Loading matches...</span>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-features">
+            <div class="footer-feature">
+                <div class="footer-feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="footer-feature-title">Fast Payouts</div>
+                <div class="footer-feature-desc">Quick and Easy</div>
+            </div>
+            <div class="footer-feature">
+                <div class="footer-feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="footer-feature-title">Security</div>
+                <div class="footer-feature-desc">Safe & Encrypted</div>
+            </div>
+            <div class="footer-feature">
+                <div class="footer-feature-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="footer-feature-title">24/7 Support</div>
+                <div class="footer-feature-desc">Always Here For You</div>
+            </div>
+            <div class="footer-feature">
+                <div class="footer-feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="footer-feature-title">Top Odds</div>
+                <div class="footer-feature-desc">Best Winnings</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copyright">© 2024 Lucky777. All rights reserved.</div>
+            <div class="footer-links">
+                <a class="footer-link">About Us</a>
+                <a class="footer-link">Terms & Conditions</a>
+                <a class="footer-link">Privacy Policy</a>
+                <a class="footer-link">Responsible Play</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BET SLIP -->
+    <div class="bet-slip" id="betSlip">
+        <div class="bet-slip-bar" onclick="toggleBetSlip()">
+            <div style="display:flex;align-items:center;gap:8px;">
+                <i class="fa-solid fa-receipt"></i>
+                <span>Bet Slip</span>
+                <span class="count" id="betCount">0</span>
+            </div>
+            <i class="fa-solid fa-chevron-up"></i>
+        </div>
+        <div class="bet-slip-panel" id="betSlipPanel">
+            <div id="betSlipItems">
+                <div class="empty-state" style="padding:20px">
+                    <i class="fa-solid fa-receipt" style="font-size:24px;"></i>
+                    <p>Your bet slip is empty</p>
+                </div>
+            </div>
+            <div class="bet-slip-stake">
+                <label>Stake (₹)</label>
+                <input type="number" class="stake-input-bet" id="betStake" value="100" min="10" onchange="updateStake(this.value)" oninput="updateStake(this.value)">
+            </div>
+            <div class="bet-slip-total" id="betSlipTotal">
+                <span>Total Odds</span><span>-</span>
+            </div>
+            <div class="bet-slip-payout">
+                <span class="payout-label">Potential Win</span>
+                <span class="payout-value" id="betPayout">₹0.00</span>
+            </div>
+            <button class="btn-place-bet" id="btnPlaceBet" onclick="placeBet()" disabled>
+                <i class="fa-solid fa-check-circle"></i> Place Bet via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- WHATSAPP BUTTON -->
+    <a href="https://wa.me/" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="app.js"></script>
+</body>
+</html>
